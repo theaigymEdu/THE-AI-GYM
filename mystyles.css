@@ -1,0 +1,248 @@
+/* start of how it works section */
+/* Custom CSS with balanced color usage */
+#how-it-works {
+    padding: 80px 0;
+    background: #fefaf3; /* Light version of your primary color */
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: #f2cc8f; /* Your secondary color */
+    border: 3px solid #f2cc8f; /* Your primary color */
+    box-shadow: 0 4px 8px rgba(224, 122, 95, 0.3);
+}
+
+.step {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(242, 204, 143, 0.2);
+    border-left: 4px solid #f2cc8f; /* Your primary color */
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(224, 122, 95, 0.25);
+    border-left: 4px solid #e07a5f; /* Change to secondary color on hover */
+}
+
+.step h4 {
+    color: #333;
+}
+
+.step p {
+    color: #666;
+}
+
+/* Arrow styling */
+.arrow-line {
+    width: 80px;
+    height: 2px;
+    background: #f2cc8f; /* Your primary color */
+    position: relative;
+    margin: 0 10px;
+}
+
+.arrow-line::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid #f2cc8f; /* Your primary color */
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 991.98px) {
+    .steps .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        margin-bottom: 30px;
+        max-width: 350px;
+    }
+    
+    .arrow-line {
+        display: none;
+    }
+}
+/* ending of how it works section */
+
+
+/* 🌟 Floating container */
+.floating-social {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+/* ✨ Base icon styling */
+.social-icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* 🌈 Icon image */
+.social-icon img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+  transition: transform 0.2s ease;
+}
+
+/* 💫 Hover + active animations */
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+.social-icon:hover img {
+  transform: scale(1.15);
+}
+
+.social-icon:active {
+  transform: scale(1.02);
+}
+
+/* 💬 Tooltip styling */
+.tooltip-text {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background-color: #1f2937;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #1f2937;
+}
+
+/* 🎬 Tooltip animation */
+.social-icon:hover .tooltip-text {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  right: 75px;
+}
+
+/* 🟢 WhatsApp color pulse effect */
+.social-icon.whatsapp:hover {
+  animation: pulse-green 1.4s infinite;
+}
+
+/* 🌈 Instagram gradient + pulse */
+.social-icon.instagram {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+}
+
+.social-icon.instagram:hover {
+  animation: pulse-pink 1.4s infinite;
+}
+
+/* 🔁 Pulse animations */
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes pulse-pink {
+  0% { box-shadow: 0 0 0 0 rgba(238, 42, 123, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(238, 42, 123, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(238, 42, 123, 0); }
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+  .floating-social {
+    bottom: 20px;
+    right: 20px;
+  }
+  .social-icon {
+    width: 55px;
+    height: 55px;
+  }
+  .social-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .tooltip-text {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ♿ Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .social-icon, .social-icon img, .tooltip-text {
+    transition: none;
+    animation: none;
+  }
+}
+
+
+
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #e07a5f;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+
+

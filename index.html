@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>THE AI GYM</title>
+
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    // Initialize EmailJS
+    (function() {
+      emailjs.init("OxPyTXPMTcKwcwb7O"); // Your public key
+    })();
+
+    // Send email function
+    function sendMail(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = {
+        from_name: form.full_name.value,
+        from_email: form.email.value,
+        message: form.message.value
+      };
+
+      // Disable button to prevent resubmission
+      const submitBtn = form.querySelector("button[type='submit']");
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
+
+      emailjs.send("service_rd70kj3", "template_7kcngiw", formData)
+        .then(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit Form";
+          document.getElementById("form-status").innerHTML = 
+            `<div class="alert alert-success mt-3">✅ Message sent successfully! We'll get back to you soon.</div>`;
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("EmailJS Error:", error);
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit Form";
+          document.getElementById("form-status").innerHTML = 
+            `<div class="alert alert-danger mt-3">❌ Failed to send message. Please try again later.</div>`;
+        });
+    }
+  </script>
+<!-- styles to link here -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+        <link rel="stylesheet" href="./mystyles.css">
+        <link rel="stylesheet" href="./newstyles.css">
+        <link rel="stylesheet" href="./somestyles.css">
+
+<!-- end styles to link here -->
+    </head>
+    
+    <body>
+
+    <main>
+
+    <nav class="navbar navbar-expand-lg">                
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="images/Theaigymlogo.png" class="navbar-brand-image img-fluid" alt="The ai gym">
+            <span class="navbar-brand-text" style="font-family: Changa One, sans-serif; relative; font: size 400PX;; top: 5px;">
+                T H E &nbsp; A I&nbsp; G Y M
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_1">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_2">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_3">Categories</a>
+                </li>
+                
+<!-- navbar dropdown -->
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle project-link" 
+     href="#projects-section" 
+     data-filter="all"
+     id="navbarLightDropdownMenuLink" 
+     role="button" 
+     data-bs-toggle="dropdown" 
+     aria-expanded="false">
+    Projects
+  </a>
+  <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+    <li><a class="dropdown-item project-link" data-filter="Python" href="#projects-section">Python Projects</a></li>
+    <li><a class="dropdown-item project-link" data-filter="Java" href="#projects-section">Java Projects</a></li>
+    <li><a class="dropdown-item project-link" data-filter="ML" href="#projects-section">ML Projects</a></li>
+    <li><a class="dropdown-item project-link" data-filter="NLP" href="#projects-section">NLP Projects</a></li>
+  </ul>
+</li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_5">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+            
+<!-- start hero section -->
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay"></div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <h2 class="text-white">Where Excellence Meets Innovation</h2>
+
+                            <h1 class="cd-headline rotate-1 text-white mb-4 pb-2">
+                                <span>The AI Gym provides</span>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Elite Projects</b>
+                                    <b>Research Quality</b>
+                                    <b>Expert Guidance</b>
+                                </span>
+<div style="display:flex; text-align:center; gap:40px; flex-wrap:wrap; margin-top: 12px;">
+  <div>
+    <h1 class="counter-display" data-target="100" style="color:white; font-size:2rem;">0+</h1>
+    <p style="color:#f2cc8f;">Pre-Built Projects</p>
+  </div>
+
+  <div>
+    <h1 class="counter-display" data-target="500" style="color:white; font-size:2rem;">0+</h1>
+    <p style="color:#f2cc8f;">Loyal Customers</p>
+  </div>
+
+  <div>
+    <h1 class="counter-display" data-target="250" style="color:white; font-size:2rem;">0+</h1>
+    <p style="color:#f2cc8f;">Good Reviews</p>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+</section>
+<!-- end hero section -->
+
+
+<!-- start About section -->
+<section class="about-section section-padding" id="section_2">
+    <div class="container">   
+        <h2 class="mb-lg-5 mb-4 text-center">About The AI Gym</h2>
+
+        <div class="row align-items-center">
+   
+            <!-- Left side: Text -->
+            <div class="col-lg-7 col-12 mb-4 mb-lg-0">
+             
+                <h3 class="mb-3">THE AI GYM</h3>
+
+ <p>
+  <strong>The AI Gym</strong> is a leading platform offering <strong>Mini and Major Projects</strong> for <strong>B.Tech</strong> students specializing in <strong>CSE, AIML, and AIDS.</strong> <br><br>
+  We are dedicated to helping students move beyond theory by providing real-world, ready-to-use projects designed to strengthen their technical foundation and creativity. Through our curated projects in <strong>Artificial Intelligence, Machine Learning, Data Science, and Full-Stack Development</strong>, learners gain practical exposure that mirrors the challenges faced in the tech industry. <br><br>
+  Every project at <strong>The AI Gym</strong> is crafted with the goal of building confidence and improving problem-solving abilities. Students not only learn to write efficient code but also to design, analyze, and deploy applications that reflect real-world use cases. <br><br>
+  Our mission is to make learning <strong>practical, simple, and industry-relevant</strong> — empowering every student to transform their innovative ideas into impactful solutions. Whether it’s a mini project to strengthen your fundamentals or a major project to showcase in placements, <strong>The AI Gym</strong> ensures that you’re ready to excel in both academics and your future career.
+</p>
+<!-- Floating Social Icons -->
+<!-- 🌟 Floating Social Icons -->
+<div class="floating-social">
+  <a href="https://wa.me/919491084767" target="_blank" class="social-icon whatsapp" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" loading="lazy">
+    <span class="tooltip-text">Chat on WhatsApp</span>
+  </a>
+
+  <a href="https://www.instagram.com/theaigym" target="_blank" class="social-icon instagram" title="Follow on Instagram" aria-label="Follow on Instagram">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" loading="lazy">
+    <span class="tooltip-text">Follow on Instagram</span>
+  </a>
+</div>
+
+
+
+
+            </div>
+
+            <!-- Right side: Single image -->
+            <div class="col-lg-5 col-12 d-flex justify-content-lg-end justify-content-center">
+                <div class="member-block text-center text-lg-start">
+                    <div class="member-block-image-wrap">
+                        <img src="images/THEAIGYM.png" class="member-block-image img-fluid" alt="Michael">
+
+                        <ul class="social-icon mt-2">
+                            <li class="social-icon-item">
+                               <a href="#" class="social-icon-link bi-linkedin"></a>
+
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-whatsapp"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- end About section -->
+
+
+            
+<!-- start of categories section  -->
+<section class="section" id="section_3">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2>Project Categories</h2>
+      <p>Explore our wide range of project categories tailored for Computer Science and AI/ML students</p>
+    </div>
+
+    <div class="categories">
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>Artificial Intelligence</h3>
+        <p>AI projects including NLP, computer vision, and expert systems</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Machine Learning</h3>
+        <p>ML projects with algorithms, models, and data analysis</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Web Development</h3>
+        <p>Full-stack web applications with modern frameworks</p>
+      </div>
+
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Data Science</h3>
+        <p>Data analysis, visualization, and predictive modeling</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- end of categories section  -->
+
+
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.project-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        
+        const target = document.querySelector(this.getAttribute('href') || '#projects-section');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      
+        const filter = this.dataset.filter;
+        if (filter) {
+          const btn = document.querySelector(`.btn-category[data-filter="${filter}"]`);
+          if (btn) btn.click();
+        }
+      });
+    });
+  });
+</script>
+
+<!-- start of projects section -->
+<section id="section_4"></section>
+<section id="projects-section" class="py-5">
+    
+
+
+        <div class="container my-5">
+            <h2 class="mb-4 text-center">Projects</h2>
+
+            <!-- 🔍 Search + Filter -->
+            <div class="d-flex flex-wrap justify-content-center mb-4 gap-2">
+                <input type="text" id="searchInput" class="form-control w-auto" placeholder="Search project name...">
+                <select id="languageFilter" class="form-select w-auto">
+                    <option value="">All Types</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="ML">ML</option>
+                    <option value="DL">DL</option>
+                    <option value="DS">DS</option>
+                    <option value="NLP">NLP</option>
+                </select>
+                <button id="searchBtn" class="btn text-white" style="background-color:#e07a5f;">Search</button>
+            </div>
+
+            <!-- 🧩 Category Buttons -->
+            <div class="text-center mb-4">
+                <button class="btn btn-category m-1 active" data-filter="all" style="background-color:#f2cc8f;">All Projects</button>
+                <button class="btn btn-category m-1" data-filter="Python">Python</button>
+                <button class="btn btn-category m-1" data-filter="Java">Java</button>
+                <button class="btn btn-category m-1" data-filter="ML">ML</button>
+                <button class="btn btn-category m-1" data-filter="DL">DL</button>
+                <button class="btn btn-category m-1" data-filter="DS">DS</button>
+                <button class="btn btn-category m-1" data-filter="NLP">NLP</button>
+                
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="row" id="projectsContainer"></div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center align-items-center mt-4 flex-wrap gap-2">
+                <button id="prevBtn" class="btn btn-outline-secondary pagination-btn">Prev</button>
+                <div id="paginationNumbers" class="d-flex flex-wrap justify-content-center gap-2"></div>
+                <button id="nextBtn" class="btn btn-outline-secondary pagination-btn">Next</button>
+            </div>
+            <p id="projectCount" class="text-center text-muted mt-2"></p>
+        </div>
+    </section>
+
+
+    <!-- Demo Modal -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="demoModalLabel">Request Demo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="projectName" class="form-label">Project</label>
+                            <select class="form-select" id="projectName" name="projectName" required>
+                                <option value="">Select a project</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn text-white" style="background-color:#e07a5f; width: 100%;">Request Demo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
+<!-- end of projects section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+<!-- start of How It Works section -->
+
+
+<section class="section-bg-image">
+    <!-- Top SVG Wave -->
+    <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg">
+        <path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 0 L 0 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 0 L 327 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 0 L 563 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 0 L 885 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z"></path>
+    </svg>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-bg-image-block">
+<h2 class="display-5 fw-bold text-dark mb-3 text-center">How It Works</h2>
+
+                    <!-- ✅ Single Row for All 4 Cards -->
+                    <div class="row g-4 text-center">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="step card border-0 h-100">
+                                <div class="card-body p-4">
+                                    <div class="step-number text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">1</div>
+                                    <h4 class="card-title fw-bold mb-3">Browse Projects</h4>
+                                    <p class="card-text">Explore our extensive catalog of mini and major projects across various domains.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="step card border-0 h-100">
+                                <div class="card-body p-4">
+                                    <div class="step-number text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">2</div>
+                                    <h4 class="card-title fw-bold mb-3">Select Project</h4>
+                                    <p class="card-text">Choose the project that best fits your area of interest and requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="step card border-0 h-100">
+                                <div class="card-body p-4">
+                                    <div class="step-number text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">3</div>
+                                    <h4 class="card-title fw-bold mb-3">Request Demo</h4>
+                                    <p class="card-text">Submit a demo request to preview project functionality and flow.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="step card border-0 h-100">
+                                <div class="card-body p-4">
+                                    <div class="step-number text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">4</div>
+                                    <h4 class="card-title fw-bold mb-3">Get Full Source</h4>
+                                    <p class="card-text">Purchase the complete project with documentation and support.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ✅ End Single Row -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom SVG Wave -->
+    <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg">
+        <path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 0 L 0 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 0 L 327 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 0 L 563 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 0 L 885 0 Z"></path>
+        <path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z"></path>
+    </svg>
+</section>
+
+<!-- end of How It Works section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br>
+
+
+        
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/Theaigymlogo.png" class="navbar-brand-image img-fluid" alt="">
+                            <span class="navbar-brand-text">
+                                THE AI GYM
+
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Join Us</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span>Mon-Fri</span>
+                            6:00 AM - 6:00 PM
+                        </p>
+
+                        <p class="d-flex me-lg-3">
+                            <span>Sat-Sun</span>
+                            6:30 AM - 8:30 PM
+                        </p>
+                        <br>
+                        <p class="copyright-text">Copyright © 2048 Tiya Golf Club</p>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/animated-headline.js"></script>
+        <script src="js/modernizr.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/myscripts.js"></script>
+
+
+
+
+
+
+       
+
+
+    </body>
+</html>

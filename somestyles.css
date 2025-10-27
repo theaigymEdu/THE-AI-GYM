@@ -1,0 +1,84 @@
+
+  /* Button styling */
+  .request-btn {
+    background-color: #f2cc8f !important;
+    color: #fff !important;
+    border: none !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .request-btn:hover {
+    background-color: #e07a5f !important;
+  }
+
+  /* Tag (badge) styling */
+  .badge-parrot {
+    background-color: #f2cc8f !important;
+    color: #fff !important;
+  }
+
+    .btn-demo {
+    background-color: #f2cc8f !important;
+    color: #fff !important;
+    border: none !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-demo:hover {
+    background-color: #e07a5f !important;
+  }
+
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-category.active {
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+        
+        .badge {
+            font-size: 0.7rem;
+        }
+        
+        .badge-parrot {
+            background-color: #f2cc8f;
+            color: #000;
+        }
+        
+        .request-btn {
+            background-color: #e07a5f;
+            color: white;
+            border: none;
+        }
+        
+        .request-btn:hover {
+            background-color: #d1664a;
+            color: white;
+        }
+        
+        .pagination-btn {
+            min-width: 40px;
+        }
+        
+        .pagination-ellipsis {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+        }
+ 
