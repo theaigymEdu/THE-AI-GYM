@@ -9,7 +9,7 @@
 
     {
         projectId: "ML001",
-        image: "/images/Project/ML001.png",
+        image: "images/Project/ML001.png",
         tags: ["Flask","Python","Machine Learning"],
         name: "Diabetes Predictor App",
         description: "A Flask-based machine learning web app that predicts diabetes risk using health parameters like glucose, BMI, and blood pressure.",
